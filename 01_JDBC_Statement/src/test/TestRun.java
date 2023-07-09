@@ -56,7 +56,9 @@ public class TestRun {
 		
 		
 		try {
-			// 1) jdbc driver 등록
+			
+			// 1) jdbc driver 경로 등록
+			//    01_JDBC_Statement 우클릭, properties, Java build path, Library, Add JARs => dev폴더의 ojdbc6 추가
 			Class.forName("oracle.jdbc.driver.OracleDriver");	// (오류!!) ojdbc6.jar 파일을 추가 안했을 경우 | 추가는 했는데 오타가 나서 클래스를 못찾는 경우 
 			System.out.println("jdbc driver 등록 성공");
 			
@@ -71,18 +73,17 @@ public class TestRun {
 			
 			// 4, 5) sql문 전달하면서 실행 후 결과받기 (처리된 행수)
 			result = stmt.executeUpdate(sql);
-			// 내가 실행할 sql문이 DML(I,U,D)문일 경우 => stmt.executeUpdate("dml문") : int
+			//.executeUpdate(쿼리);  == 쿼리를 업데이트하는 구문
+			// 내가 실행할 sql문이 DML(Insert,Update,Delete)문일 경우 => stmt.executeUpdate("dml문") : int
 			// 내가 실행할 sql문이 SELECT문 일 경우		=> stmt.executeQuery("select문") : ResultSet
 			
 			// 6) 트랜젝션 처리
-			if(result > 0) { // 성공했을 경우 commit
+			if(result > 0) { // 성공했을 경우 commit (0보다 크면 뭔가가 됐다는 뜻)
 				conn.commit();
 			}else { // 실패했을 경우 rollback
 				conn.rollback();
 			}
 
-			
-			
 		} catch (ClassNotFoundException e) {
 			System.out.println("OrcleDriver 클래스를 찾지 못했습니다.");
 			e.printStackTrace();
@@ -102,11 +103,13 @@ public class TestRun {
 				System.out.println("insert 실패ㅜㅜ");
 			}
 		}
-
 		
 		
-		
-	}
+	}//메소드
+	
+	
+	
+	
 	
 
 }
