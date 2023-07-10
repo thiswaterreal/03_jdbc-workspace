@@ -27,6 +27,7 @@ public class Member {
 	// 생성자부
 	// 기본생성자, 매개변수 생성자
 	// 			alt shift s o
+	public Member() {};
 	
 	public Member(int userNo, String userId, String userPwd, String userName, String gender, int age, String email,
 			String phone, String address, String hobby, Date enrollDate) {

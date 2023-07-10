@@ -25,6 +25,7 @@ public class MemberController {
 		// 담는 방법 1) 기본생성자로 생성한 후 각 필드에 setter 메소드 통해서 일일히 담는 방법 => 이건 매개변수가 몇개 없을 때..
 		// 담는 방법 2) 아싸리 매개변수 생성자를 통해서 생성과 동시에 담는 방법
 		
+		// 방법2..
 		Member m = new Member(userId, userPwd, userName, gender, Integer.parseInt(age), email, phone, address, hobby);
 		// 여기서 나이를 반드시!! int 형으로 바꿔야함 (가공처리)
 		// (age 입력받을땐 String 으로 받아놓고)age를 int 형으로 만들었기 때문에
@@ -34,13 +35,15 @@ public class MemberController {
 		// System.out.println(m);
 		
 		// m에 담은 값들을 Dao로 전달
-		int result = new MemberDao().insultMember(m);
+		int result = new MemberDao().insertMember(m);
+		//		담아 MemberDao의 insultMember를 호출(m을 들고 == 전달값:m)
 		
-		// System.out.println(result);
+		// System.out.println(result); 확인용. 이대로 돌려서 입력하면 오라클에 회원정보추가되어있음
 		
 		// 팝업창 뜨는 것처럼 사용자에게 문구 보여주기
 		if(result > 0) { // 성공
 			new MemberMenu().displaySuccess("성공적으로 회원 추가 되었습니다.");
+			// MemberMenu의 displaySuccess 메소드를 호출
 		}else { // 실패
 			new MemberMenu().displayFail("회원 추가 실패했습니다..");
 		}
@@ -48,7 +51,7 @@ public class MemberController {
 	}
 	
 	
-	/** 2.
+	/** 2. (2:12)
 	 * 사용자의 회원 전체 조회 요청을 처리해주는 메소드
 	 */
 	public void selectList() {
@@ -66,7 +69,7 @@ public class MemberController {
 	}
 	
 	
-	/** 3.
+	/** 3. 
 	 * @param userId
 	 */
 	public void selectByUserId(String userId) {
@@ -80,29 +83,22 @@ public class MemberController {
 		}
 	}
 	
-	
 	/** 6.
 	 * @param userId
-	 * @param userPwd
-	 * @param userName
 	 */
-	public void deleteMember(String userId, String userPwd, String userName, String gender, String age, String email, String phone, String address, String hobby) {
+	/*
+	public void deleteMember(String userId) {
+		new MemberDao().deleteMember(userId);
 		
-		
-		// 받은 값들을 데이터를 직접적으로 처리해주는 DAO로 넘기기!
-		Member m = new Member(userId, userPwd, userName, gender, Integer.parseInt(age), email, phone, address, hobby);
-
-		
-		// m에 담은 값들을 Dao로 전달
-		int result = new MemberDao().deleteMember(m);
-		
-		// 팝업창 뜨는 것처럼 사용자에게 문구 보여주기
+		int result = new MemberDao().deleteMember();
+	
 		if(result > 0) { // 성공
 			new MemberMenu().displaySuccess("성공적으로 회원 탈퇴 되었습니다.");
 		}else { // 실패
 			new MemberMenu().displayFail("회원 탈퇴 실패했습니다..");
 		}
-		
 	}
+	*/
+	
 	
 }

@@ -38,7 +38,7 @@ public class MemberDao {
 	 * 사용자가 입력한 정보들을 추가시켜주는 메소드
 	 * @param m		: 사용자가 입력한 값들이 주섬주섬 담겨있는 Member 객체
 	 */
-	public int insultMember(Member m) {//(12:16)
+	public int insertMember(Member m) {
 		// insert문 => 처리된 행수(int)	=> 트랜젝션 처리
 		
 		// 필요한 변수들 먼저 셋팅
@@ -131,9 +131,10 @@ public class MemberDao {
 			stmt = conn.createStatement();
 			
 			// 4,5) sql문 실행 및 결과 받기
-			rset = stmt.executeQuery(sql);	// 이제 전체조회표가 rset에 담김
+			rset = stmt.executeQuery(sql);	// 이제 전체 조회표가 rset에 담김
 			
-			// 6) ResultSet으로부터 데이터 하나씩 뽑아서 vo객체에 주섬주섬 담고 + list에 vo객체 추가
+			// 6) ResultSet으로부터 데이터 하나씩 뽑아서 vo객체에 주섬주섬 담고 
+			//    + list에 vo객체 추가
 			
 			while(rset.next()) {
 				
@@ -252,15 +253,15 @@ public class MemberDao {
 	 * @param m
 	 * @return
 	 */
-	public int deleteMember(Member m) {
-		// insert문 => 처리된 행수(int)	=> 트랜젝션 처리
+	/*
+	public int deleteMember(String userId) {
 		
-		// 필요한 변수들 먼저 셋팅
+		Member m = null;
+		
 		int result = 0;			
 		Connection conn = null;	
 		Statement stmt = null;
 		
-		// 실행할 sql문 (완성된 형태로 만들어 두기!!)
 		// DELETE FROM MEMBER WHERE USERID = USERID AND USERPWD = USERPWD AND USERNAME = USERNAME;
 		String sql = "DELETE FROM MEMBER WHERE USERID = " + m.getUserId();
 		
@@ -289,7 +290,7 @@ public class MemberDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			// 7) 다 쓴 jdbc용 객체 반납
+			
 			try {
 				stmt.close();
 				conn.close();
@@ -301,6 +302,8 @@ public class MemberDao {
 		return result;
 		
 	}
+	*/
+	
 	
 	
 	

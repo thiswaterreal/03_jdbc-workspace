@@ -46,8 +46,7 @@ public class MemberMenu {
 					break;
 			case 4: /*selectByUserName();*/ break;
 			case 5: break;
-			case 6: String userId2 = inputMemberId(); 
-					mc.deleteMember(userId2);	// userId가지고 controller 호출!!
+			case 6: /*deleteMember();*/
 					break;
 			case 0: System.out.println("이용해주셔서 감사합니다."); return;
 			case 9: break;
@@ -94,12 +93,13 @@ public class MemberMenu {
 		String hobby = sc.nextLine();
 		
 		// 회원 추가 요청 == Controller 메소드 호출
+		//mc의 insertMember를 호출 (요놈들을 들고)
 		mc.insertMember(userId, userPwd, userName, gender, age, email, phone, address, hobby);
 		
 	}
 	
 	
-	/** 3.
+	/** 3. (3:23)
 	 * 사용자에게 회원 아이디 입력 받은 후 그때 입력된 값을 반환시켜주는 메소드
 	 * @return 사용자가 입력한 아이디값 (곧바로 반환!)
 	 */
@@ -109,29 +109,28 @@ public class MemberMenu {
 	}
 	
 	
-	public void selectByUserName() {
-		
-	}
-	
-	
+	/** 4.
+	 * @return
+	 */
 	/*
+	public String selectByUserName() {
+		System.out.print("\n 회원 이름 키워드 입력 : ");
+		String userName = sc.nextLine();
+	}
+	*/
+
 	/** 6.
 	 * 
 	 */
+	/*
 	public void deleteMember() {
-		System.out.println("\n==== 회원 탈퇴 ====");
-		// 일단 아이디, 비밀번호 입력 받기
-		
 		System.out.print("아이디 : ");
 		String userId = sc.nextLine();
-		
-		System.out.print("비밀번호 : ");
-		String userPwd = sc.nextLine();
-		
-		// 회원 추가 요청 == Controller 메소드 호출
-		mc.deleteMember(userId, userPwd);
+		mc.deleteMember(userId);
 	}
 	*/
+	
+
 	
 	
 	
