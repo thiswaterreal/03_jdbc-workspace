@@ -57,7 +57,9 @@ public class MemberMenu {
 					mc.deleteMember(inputMemberId());
 					break;
 			case 0: System.out.println("이용해주셔서 감사합니다."); return;
-			case 9: break; //inputMemberName 호출해서..
+			case 9: String userName = inputMemberName();
+					mc.selectByUserNameAll(userName);
+					break;
 			default : System.out.println("메뉴를 잘못입력하셨습니다. 다시 입력해주세요.");
 			}
 			

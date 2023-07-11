@@ -99,6 +99,21 @@ public class MemberController {
 		}
 	}
 	
+	/** 9.
+	 * 이름으로 풀네임 검색 요청시 처리해주는 메소드
+	 * @param keyword
+	 */
+	public void selectByUserNameAll(String userName) {
+		ArrayList<Member> list = new MemberDao().selectByUserName(userName);
+		// 이제 결과를 list에 담아
+		
+		if(list.isEmpty()) { // 텅 빈 리스트일 경우 == 검색결과 없음
+			new MemberMenu().displayNoData(userName + "에 해당하는 검색 결과가 없습니다.");
+		}else { // 그게 아닐 경우 => 검색결과 있음
+			new MemberMenu().displayMemberList(list); // 여러행
+		}
+	}
+	
 	
 	/** 5.
 	 * 정보 변경 요청 처리해주는 메소드
