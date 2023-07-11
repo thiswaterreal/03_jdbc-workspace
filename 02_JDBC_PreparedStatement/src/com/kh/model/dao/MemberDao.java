@@ -411,7 +411,8 @@ public class MemberDao {
 			}
 		}
 		
-		return result; //사용자에게 (삭제)결과 알려주기
+		return result;
+		
 		
 	}
 	

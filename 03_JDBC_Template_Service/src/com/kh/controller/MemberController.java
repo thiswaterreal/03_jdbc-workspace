@@ -3,6 +3,7 @@ package com.kh.controller;
 import java.util.ArrayList;
 
 import com.kh.model.dao.MemberDao;
+import com.kh.model.service.MemberService;
 import com.kh.model.vo.Member;
 import com.kh.view.MemberMenu;
 
@@ -20,11 +21,11 @@ public class MemberController {
 	 */
 	public void insertMember(String userId, String userPwd, String userName, String gender, String age, String email, String phone, String address, String hobby) {
 		
-		// 매개변수 생성자로..(9개) / int는 형변환!!
-		// 가공하고, 담아서, dao호출해
 		Member m = new Member(userId, userPwd, userName, gender, Integer.parseInt(age), email, phone, address, hobby);
-		int result = new MemberDao().insertMember(m);
-	
+		//int result = new MemberDao().insertMember(m);
+		int result = new MemberService().insertMember(m); //서비스호출
+		
+		
 		if(result > 0) {
 			new MemberMenu().displaySuccess("성공적으로 회원추가 되었습니다.");
 		}else {
@@ -38,7 +39,7 @@ public class MemberController {
 	 */
 	public void selectList() {
 		
-		ArrayList<Member> list = new MemberDao().selectList();
+		ArrayList<Member> list = new MemberService().selectList();
 		
 		if(list.isEmpty()) {
 			new MemberMenu().displayNoData("조회된 결과가 없습니다.");
