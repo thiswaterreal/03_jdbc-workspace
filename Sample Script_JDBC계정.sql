@@ -32,6 +32,7 @@ VALUES(SEQ_USERNO.NEXTVAL, 'user01', 'pass01', 'ȫ�浿', null, 23, 'user01@iei.o
 
 COMMIT;
 
+------------------------------------------------------------------------------
 
 CREATE TABLE TEST(
     TNO NUMBER,
