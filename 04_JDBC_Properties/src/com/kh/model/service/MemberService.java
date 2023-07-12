@@ -20,6 +20,8 @@ public class MemberService {
 		Connection conn = /*JDBCTemplate.*/getConnection();
 		int result = new MemberDao().insertMember(conn,m);	// pstmt 만들려면 conn 필요함
 		
+		
+		
 		// 6) 트랜젝션 처리
 		if(result > 0) {
 			/*JDBCTemplate.*/commit(conn);

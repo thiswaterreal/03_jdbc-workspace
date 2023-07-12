@@ -18,7 +18,7 @@ public class JDBCTemplate {	// (5:00)
 	// 싱글톤 패턴 : 메모리 영역에 단 한번만 올려두고 매번 재사용 하는 개념 (Math 클래스 같은 것)
 	
 	/**
-	 * 1. Connection 객체 생성 (DB와 접속) 한 후 해당 Connection 객체 반환해주는 메소드
+	 * 1. Connection 객체 '생성' (DB와 접속) 후 해당 Connection 객체 '반환' 해주는 메소드
 	 * @return
 	 */
 	public static Connection getConnection() {
@@ -95,7 +95,7 @@ public class JDBCTemplate {	// (5:00)
 	
 	// JDBC용 객체들 전달받아서 반납처리해주는 메소드
 	/**
-	 * 4. Statement (관련 객체 전달받아서) 반납시켜주는 메소드
+	 * 4. Statement (관련 객체 전달받아서) '반납' 시켜주는 메소드
 	 * @param stmt
 	 */
 	public static void close(Statement stmt) { // 얘가 부모라서 PreparedStatement 받을 수 있음!
@@ -110,7 +110,7 @@ public class JDBCTemplate {	// (5:00)
 	
 	
 	/**
-	 * 5. Connection (객체 전달 받아서) 반납시켜주는 메소드
+	 * 5. Connection (객체 전달 받아서) '반납' 시켜주는 메소드
 	 * @param conn
 	 */
 	public static void close(Connection conn) {
@@ -125,7 +125,7 @@ public class JDBCTemplate {	// (5:00)
 	
 	
 	/**
-	 * 6. ResultSet (객체 전달 받아서) 반납시켜주는 메소드
+	 * 6. ResultSet (객체 전달 받아서) '반납' 시켜주는 메소드
 	 * @param rset
 	 */
 	public static void close(ResultSet rset) {

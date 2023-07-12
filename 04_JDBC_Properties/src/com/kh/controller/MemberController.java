@@ -26,6 +26,7 @@ public class MemberController {
 		int result = new MemberService().insertMember(m); //서비스호출
 		
 		
+		
 		if(result > 0) {
 			new MemberMenu().displaySuccess("성공적으로 회원추가 되었습니다.");
 		}else {
@@ -40,6 +41,8 @@ public class MemberController {
 	public void selectList() {
 		
 		ArrayList<Member> list = new MemberService().selectList();
+		
+		
 		
 		if(list.isEmpty()) {
 			new MemberMenu().displayNoData("조회된 결과가 없습니다.");
@@ -57,6 +60,8 @@ public class MemberController {
 	public void selectByUserId(String userId) {
 		Member m = new MemberService().selectByUserId(userId);
 		
+		
+		
 		if(m == null) {
 			new MemberMenu().displayNoData(userId + "에 해당하는 검색결과가 없습니다");
 		}else {
@@ -72,6 +77,8 @@ public class MemberController {
 	 */
 	public void selectByUserName(String keyword) {
 		ArrayList<Member> list = new MemberService().selectByUserName(keyword);
+		
+		
 		
 		if(list.isEmpty()) {
 			new MemberMenu().displayNoData(keyword);
@@ -103,6 +110,8 @@ public class MemberController {
 		
 		int result = new MemberService().updateMember(m); //5개 들고 dao로~~
 		
+		
+		
 		if(result > 0) {
 			new MemberMenu().displaySuccess("성공적으로 회원 정보가 변경되었습니다.");
 		}else {
@@ -118,6 +127,8 @@ public class MemberController {
 	public void deleteMember(String userId) { //userId2도 가능 타입만 맞으면 됨
 		
 		int result = new MemberService().deleteMember(userId);
+		
+		
 		
 		if(result > 0) { // 성공
 			new MemberMenu().displaySuccess("회원 탈퇴 완료되었습니다.");
