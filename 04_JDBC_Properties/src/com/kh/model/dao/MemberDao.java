@@ -296,7 +296,7 @@ public class MemberDao {
 	 * @param userId : 사용자가 입력한 아이디
 	 * @return result : 처리된 행수
 	 */
-	public int deleteMember(Connection conn, String userId2) {
+	public int deleteMember(Connection conn, String userId) {
 		// delete문 => 처리된 행수(int) => 트랜젝션 처리
 		
 		int result = 0;	
@@ -310,7 +310,7 @@ public class MemberDao {
 
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, userId2);
+			pstmt.setString(1, userId);
 			
 			result = pstmt.executeUpdate();
 

@@ -41,28 +41,24 @@ public class MemberMenu {
 			switch(menu) {
 			case 1: inputMember(); break;
 			case 2: mc.selectList(); break;		// 입력받을 거 없으면 바로 controller 호출!! (mc)
-			case 3: //String userId = inputMemberId(); 
+			case 3: mc.selectByUserId(inputMemberId());
+					//String userId = inputMemberId(); 
 					//mc.selectByUserId(userId);	// userId가지고 controller 호출!!
-					// (요약)
-					mc.selectByUserId(inputMemberId());
 					break;
-			case 4: //String keyword = inputMemberName(); 
+			case 4: mc.selectByUserName(inputMemberName());
+					//String keyword = inputMemberName(); 
 					//mc.selectByUserName(keyword);
-					mc.selectByUserName(inputMemberName());
 					break;
 			case 5: updateMember(); break;
-			case 6: //String userId2 = inputMemberId();
-					//mc.deleteMember(userId2);
-					// (요약)
-					mc.deleteMember(inputMemberId());
+			case 6: mc.deleteMember(inputMemberId());
+					//String userId = inputMemberId();
+					//mc.deleteMember(userId);
 					break;
 			case 0: System.out.println("이용해주셔서 감사합니다."); return;
-			case 9: //String userName = inputMemberName(); 
-					//mc.selectByUserNameAll(userName);
-					//mc.selectByUserNameAll(inputMemberName());
-				break;
-			default : System.out.println("메뉴를 잘못입력하셨습니다. 다시 입력해주세요.");
-			}
+			case 9: searchMember();
+					break;
+		  default : System.out.println("메뉴를 잘못입력하셨습니다. 다시 입력해주세요.");
+		    }
 			
 		}
 		
@@ -71,7 +67,7 @@ public class MemberMenu {
 	
 	/** 1.
 	 * 회원 추가 창 (서브 화면)
-	 * 즉, 추가하고자 하는 회원의 정보를 입력받아서 회원 추가 요청하는 창
+	 * 즉, 추가하고자 하는 회원의 정보를 입력받아서 회원 추가 요청하는 메소드
 	 */
 	public void inputMember() {
 		System.out.println("\n==== 회원 추가 ====");
@@ -132,7 +128,7 @@ public class MemberMenu {
 	
 	
 	/** 5.
-	 * 
+	 * 사용자에게 수정할 회원아이디 입력받은 후 변경할 값들 받아서 회원 수정 요청하는 메소드
 	 */
 	public void updateMember() {
 		System.out.println("\n ==== 회원정보 변경 ====");
@@ -162,7 +158,18 @@ public class MemberMenu {
 	}
 
 	
-	
+	/** 9.
+	 * 사용자에게 회원 이름 입력 받아서 해당되는 회원 검색을 요청하는 창
+	 */
+	public void searchMember() {
+		
+		System.out.println("\n==== 정보조회 ====");
+		
+		System.out.print("이름 : ");
+		String userName = sc.nextLine();
+		
+		mc.searchMember(userName);
+	}
 	
 
 	

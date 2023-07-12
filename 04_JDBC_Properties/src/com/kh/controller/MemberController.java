@@ -113,11 +113,11 @@ public class MemberController {
 	
 	/** 6.
 	 * 회원 탈퇴 요청 처리해주는 메소드
-	 * @param userId2 : 사용자가 입력한 탈퇴시키고자 하는 회원 아이디값
+	 * @param userId : 사용자가 입력한 탈퇴시키고자 하는 회원 아이디값
 	 */
-	public void deleteMember(String userId2) { //userId도 가능 타입만 맞으면 됨
+	public void deleteMember(String userId) { //userId2도 가능 타입만 맞으면 됨
 		
-		int result = new MemberService().deleteMember(userId2);
+		int result = new MemberService().deleteMember(userId);
 		
 		if(result > 0) { // 성공
 			new MemberMenu().displaySuccess("회원 탈퇴 완료되었습니다.");
@@ -128,6 +128,13 @@ public class MemberController {
 	}
 
 	
+	/** 9.
+	 * 사용자의 이름으로 정보 조회요청을 처리해주는 메소드
+	 * @param userName
+	 */
+	public void searchMember(String userName) {
+		
+	}
 	
 	
 	

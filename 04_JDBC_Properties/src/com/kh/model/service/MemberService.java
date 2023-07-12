@@ -79,6 +79,10 @@ public class MemberService {
 	}
 	
 	
+	/**
+	 * @param m
+	 * @return
+	 */
 	public int updateMember(Member m) {
 		Connection conn = getConnection();
 		int result = new MemberDao().updateMember(conn, m);
@@ -93,10 +97,15 @@ public class MemberService {
 		return result;
 	}
 	
-	public int deleteMember(String userId2) {
+	
+	/**
+	 * @param userId
+	 * @return
+	 */
+	public int deleteMember(String userId) {
 		Connection conn = getConnection();
 		
-		int result = new MemberDao().deleteMember(conn, userId2);
+		int result = new MemberDao().deleteMember(conn, userId);
 		
 		if(result > 0) {
 			commit(conn);
