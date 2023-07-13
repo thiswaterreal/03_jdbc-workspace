@@ -3,6 +3,7 @@ package com.kh.view;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.kh.controller.ProductController;
 import com.kh.model.vo.Product;
 
 public class ProductMenu {
