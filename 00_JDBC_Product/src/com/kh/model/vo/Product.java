@@ -3,7 +3,7 @@ package com.kh.model.vo;
 public class Product {
 
 	// 필드부
-	private String productId;
+	private String pId;
 	private String pName;
 	private int price;
 	private String description;
@@ -12,9 +12,9 @@ public class Product {
 	// 생성자부
 	public Product() {}
 
-	public Product(String productId, String pName, int price, String description, int stock) {
+	public Product(String pId, String pName, int price, String description, int stock) {
 		super();
-		this.productId = productId;
+		this.pId = pId;
 		this.pName = pName;
 		this.price = price;
 		this.description = description;
@@ -22,12 +22,12 @@ public class Product {
 	}
 
 	// 메소드부
-	public String getProductId() {
-		return productId;
+	public String getpId() {
+		return pId;
 	}
 
-	public void setProductId(String productId) {
-		this.productId = productId;
+	public void setpId(String pId) {
+		this.pId = pId;
 	}
 
 	public String getpName() {
@@ -62,14 +62,14 @@ public class Product {
 		this.stock = stock;
 	}
 
-	
-	
 	@Override
 	public String toString() {
-		return "Product [productId=" + productId + ", pName=" + pName + ", price=" + price + ", description="
-				+ description + ", stock=" + stock + "]";
-	};
+		return "Product [pId=" + pId + ", pName=" + pName + ", price=" + price + ", description=" + description
+				+ ", stock=" + stock + "]";
+	}
 	
+	
+
 	
 	
 }
