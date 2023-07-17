@@ -35,16 +35,15 @@ public class JDBCTemplate {	// (5:00)
 		 * 
 		 */
 		
-		
-		
 		Connection conn = null;
 		Properties prop = new Properties();
 		
 		
 		try {
 			// properties 적용해보자
+			// (1) jdbc driver 등록)
 			prop.load(new FileInputStream("resources/driver.properties"));
-			
+			// (2) Connection 객체 생성 & 반환)
 			Class.forName(prop.getProperty("driver"));
 			conn = DriverManager.getConnection(prop.getProperty("url"), prop.getProperty("username"), prop.getProperty("password"));
 		

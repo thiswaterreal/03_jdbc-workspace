@@ -15,7 +15,7 @@ public class MemberService {
 	 */
 	public int insertMember(Member m) {
 		
-		// 1) jdbc driver 등록
+		// 1) jdbc driver 등록 (JDBCTemplate에서 Connection 객체 생성&반환 메소드 만들면서 이미 등록 완료)
 		// 2) Connection 객체 생성
 		Connection conn = /*JDBCTemplate.*/getConnection();
 		int result = new MemberDao().insertMember(conn,m);	// pstmt 만들려면 conn 필요함
