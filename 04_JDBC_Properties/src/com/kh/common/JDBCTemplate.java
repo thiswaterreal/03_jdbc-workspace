@@ -38,7 +38,6 @@ public class JDBCTemplate {	// (5:00)
 		Connection conn = null;
 		Properties prop = new Properties();
 		
-		
 		try {
 			// properties 적용해보자
 			// (1) jdbc driver 등록)
