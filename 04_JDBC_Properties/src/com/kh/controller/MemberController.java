@@ -58,9 +58,10 @@ public class MemberController {
 	 * @param userId : 사용자가 입력한 검색하고자 하는 회원 아이디값
 	 */
 	public void selectByUserId(String userId) {
+		
 		Member m = new MemberService().selectByUserId(userId);
 		
-		
+
 		
 		if(m == null) {
 			new MemberMenu().displayNoData(userId + "에 해당하는 검색결과가 없습니다");
@@ -76,6 +77,7 @@ public class MemberController {
 	 * @param keyword
 	 */
 	public void selectByUserName(String keyword) {
+		
 		ArrayList<Member> list = new MemberService().selectByUserName(keyword);
 		
 		
